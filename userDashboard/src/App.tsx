@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { Routes, Route, Navigate } from "react-router-dom";
+// import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
@@ -10,8 +10,7 @@ import "./index.css";
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Router>
+    <>
         <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -20,8 +19,7 @@ const App = () => {
           <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
-      </Router>
-    </AuthProvider>
+    </>
   );
 };
 
